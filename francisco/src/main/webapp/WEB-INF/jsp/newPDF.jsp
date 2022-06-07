@@ -7,6 +7,9 @@
     <h2>Viafirma</h2>
     <div class="row">
         <div class="col-md-12">
-		<a href="/newPDF"><button>Agregar otra pagina en blanco</button></a>
+		En la carpeta del proyecto podrá encontrar el nuevo PDF creado.
         </div>
+        
+        <br><br>
+    <a href="/"><button>Inicio</button></a>
     </div>

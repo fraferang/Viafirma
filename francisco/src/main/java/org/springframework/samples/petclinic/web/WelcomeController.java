@@ -3,14 +3,12 @@ package org.springframework.samples.petclinic.web;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.samples.petclinic.repository.UserRepository;
 import org.springframework.samples.petclinic.service.NewPDFService;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.samples.petclinic.model.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import java.util.List;
+
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 @Controller
 public class WelcomeController {
@@ -29,5 +27,13 @@ public class WelcomeController {
 	public String newPDF(Map<String, Object> model) {
 	  this.newPDFService.newPDF();
 	  return "newPDF";
+	}
+	
+	Path path = Paths.get("static/resources/path/VIAFIRMA_PATH.txt");
+
+	
+	@GetMapping("/path")
+	public String path(Map<String, Object> model) {
+	  return "path";
 	}
 }
