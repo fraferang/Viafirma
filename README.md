@@ -28,31 +28,48 @@ README de la aplicación:
 
 El código modificado de la aplicación es el siguiente:
 
-en este controlador llámamos al método que genera el pdf con una página en blanco, dicho método se le pasa como parámetro una variable Path con la ruta del archivo que deseemos modificar.
+En este controlador llamamos al método que genera el pdf con una página en blanco, dicho método se le pasa como parámetro una variable Path con la ruta del archivo que deseemos modificar.
 
-@GetMapping("/newPDF")
+@GetMapping("/newPDF") 
 	public String newPDF(Map<String, Object> model) {
-  	  Path path = Paths.get("C:\\Users\\Francisco\\Desktop\\entrevista\\Viafirma\\Francisco\\src\\main\\resources\\static\\resources\\pdfs\\Francisco.pdf");
-      this.newPDFService.newPDF(path);
+
+  	  Path path = Paths.get("C:\\Users\\Francisco\\Desktop\\entrevista\\Viafirma\\Francisco\\src\\main\\resources\\static\\resources\\pdfs\\Francisco.pdf"); 
+   
+ 	  this.newPDFService.newPDF(path);
+
 	  return "newPDF";
+
 	}
 
 El método que genera el PDF modificado es el siguiente:
 
 public void newPDF(Path path) {
+
 		try {
+
 		File file = new File(path.toString());
+
 		PDDocument document = PDDocument.load(file);
+
 		PDPage my_page = new PDPage();
+
 		document.addPage(my_page);
+
 		document.save("C:\\Users\\Francisco\\Desktop\\entrevista\\Viafirma\\Francisco\\src\\main\\resources\\static\\resources\\pdfs\\NuevoPDF.pdf");
+
 		document.close();
+
 		
 		}
+
 		catch (IOException e)
+
         {
+
             e.printStackTrace();
+
         }
+
 	}
 
 Se ha utilizado un proyecto base (PetClinic) para poder agilizar el proceso
