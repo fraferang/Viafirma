@@ -25,12 +25,12 @@ public class WelcomeController {
 	  
 	@GetMapping("/newPDF")
 	public String newPDF(Map<String, Object> model) {
-	  this.newPDFService.newPDF();
+  	  Path path = Paths.get("C:\\Users\\Francisco\\Desktop\\entrevista\\Viafirma\\Francisco\\src\\main\\resources\\static\\resources\\pdfs\\Francisco.pdf");
+      this.newPDFService.newPDF(path);
 	  return "newPDF";
 	}
 	
 	Path path = Paths.get("static/resources/path/VIAFIRMA_PATH.txt");
-
 	
 	@GetMapping("/path")
 	public String path(Map<String, Object> model) {
